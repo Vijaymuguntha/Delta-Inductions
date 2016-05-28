@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    body
+        {
+        background-image: url("http://i0.wp.com/thezinx.com/wp-content/uploads/minion-3.jpg");
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        }
+        
+        #prop {
+            
+            display : inline-block;
+            text-align: center;
+            margin-left: 75%;
+        } 
+        
+        #days , #hours , #minutes , #seconds {
+            border: 4px solid #ff9900;
+            padding:10px;
+            text-align: center;
+            width:50px;
+            font-family: Rockwell;
+            font-size:25px;
+            
+        } 
+        
+        #heading {
+            
+            margin-left:65%;
+            color:#ff9900;
+            
+        }
+    </style>
+    </head>
+    <body>
+         
+        <div id="heading">
+        
+            <h1 >Despicable Me 3 releases in</h1>
+            
+        </div>    
+        <div id="prop">
+            <p id="days"></p>
+            <p>DAYS</p>
+            
+            <p id="hours"></p>
+            <p>HOURS</p>
+            
+            <p id="minutes"></p>
+            <p>MINUTES</p>
+            
+            <p id="seconds"></p>
+            <p>SECONDS</p>
+            
+        </div>    
+        
+            <script>
+            function timer()
+            {
+                var today = new Date();
+                var timerday=new Date("06-30-2017");
+                var diff= timerday.getTime()-today.getTime();
+
+                if(diff>0)
+                {
+                    var seconds=Math.floor(diff/1000);
+                    var minutes=Math.floor(seconds/60);
+                    var hours=Math.floor(minutes/60);
+                    var days=Math.floor(hours/24);
+
+                    hours=hours%24;
+                    minutes=minutes%60;
+                    seconds=seconds%60;
+
+                    document.getElementById("days").innerHTML = days;
+                    document.getElementById("hours").innerHTML = hours;
+                    document.getElementById("minutes").innerHTML =minutes;
+                    document.getElementById("seconds").innerHTML =seconds;
+
+                    var countdown= setTimeout('timer()',1000);
+                }
+            }
+            </script>
+        
+        <script>
+            timer();
+        </script>
+    </body>
+</html>
